@@ -95,8 +95,8 @@ PRODUCT_PACKAGES += \
 	gralloc.$(TARGET_PRODUCT)
 
 # gps
-PRODUCT_PACKAGES += \
-	gps.$(TARGET_PRODUCT)
+#PRODUCT_PACKAGES += \
+#    gps.$(TARGET_PRODUCT)
 
 # Custom Update packages
 PRODUCT_PACKAGES += \
@@ -163,8 +163,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0
 
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
-PRODUCT_AAPT_PREF_CONFIG := xhdpi xxhdpi
+PRODUCT_AAPT_CONFIG := normal large xlarge tvdpi hdpi xhdpi xxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_CHARACTERISTICS := tablet
 
@@ -176,9 +176,8 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-
-PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
+#PRODUCT_COPY_FILES += \
+#    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.lcd_density=160
@@ -255,23 +254,31 @@ PRODUCT_COPY_FILES += \
 	device/hardkernel/proprietary/bin/Vendor_045e_Product_0719.kcm:system/usr/keychars/Vendor_045e_Product_0719.kcm
 
 PRODUCT_PACKAGES += \
-	libwapi 
-    
-PRODUCT_COPY_FILES += \
-	device/hardkernel/proprietary/apk/Ultra_Explorer.apk:system/app/Ultra_Explorer.apk \
-	device/hardkernel/proprietary/apk/jackpal.androidterm.apk:system/app/jackpal.androidterm.apk \
-	device/hardkernel/proprietary/lib/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so
+    libwapi
 
-PRODUCT_COPY_FILES += \
-	device/hardkernel/proprietary/apk/DicePlayer.apk:system/app/DicePlayer.apk \
-	device/hardkernel/proprietary/lib/libSoundTouch.so:system/lib/libSoundTouch.so \
-	device/hardkernel/proprietary/lib/libdice_kk.so:system/lib/libdice_kk.so \
-	device/hardkernel/proprietary/lib/libdice_loadlibrary.so:system/lib/libdice_loadlibrary.so \
-	device/hardkernel/proprietary/lib/libdice_software.so:system/lib/libdice_software.so \
-	device/hardkernel/proprietary/lib/libdice_software_kk.so:system/lib/libdice_software_kk.so \
-	device/hardkernel/proprietary/lib/libffmpeg_dice.so:system/lib/libffmpeg_dice.so \
-	device/hardkernel/proprietary/lib/libsonic.so:system/lib/libsonic.so
+#PRODUCT_COPY_FILES += \
+#    device/hardkernel/proprietary/apk/Ultra_Explorer.apk:system/app/Ultra_Explorer.apk \
+#    device/hardkernel/proprietary/apk/jackpal.androidterm.apk:system/app/jackpal.androidterm.apk \
+#    device/hardkernel/proprietary/lib/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so
+
+#PRODUCT_COPY_FILES += \
+#    device/hardkernel/proprietary/apk/DicePlayer.apk:system/app/DicePlayer.apk \
+#    device/hardkernel/proprietary/lib/libSoundTouch.so:system/lib/libSoundTouch.so \
+#    device/hardkernel/proprietary/lib/libdice_kk.so:system/lib/libdice_kk.so \
+#    device/hardkernel/proprietary/lib/libdice_loadlibrary.so:system/lib/libdice_loadlibrary.so \
+#    device/hardkernel/proprietary/lib/libdice_software.so:system/lib/libdice_software.so \
+#    device/hardkernel/proprietary/lib/libdice_software_kk.so:system/lib/libdice_software_kk.so \
+#    device/hardkernel/proprietary/lib/libffmpeg_dice.so:system/lib/libffmpeg_dice.so \
+#    device/hardkernel/proprietary/lib/libsonic.so:system/lib/libsonic.so
 
 # init.d support
 PRODUCT_COPY_FILES += \
-	device/hardkernel/proprietary/bin/sysinit:system/bin/sysinit
+    device/hardkernel/proprietary/bin/sysinit:system/bin/sysinit
+
+PRODUCT_PACKAGES += \
+    Launcher3 \
+    Settings \
+    Browser
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=160

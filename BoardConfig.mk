@@ -32,6 +32,15 @@ USE_ULP_AUDIO := false
 # ALP Audio
 BOARD_USE_ALP_AUDIO := false
 
+#
+# Bluetooth
+#
+BOARD_HAVE_BLUETOOTH := true
+BLUETOOTH_HCI_USE_USB := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/odroidx/bluetooth
+BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
+
 # SEC Camera
 USE_SEC_CAMERA := false
 CAMERA_USE_DIGITALZOOM := true
@@ -104,13 +113,14 @@ BOARD_SUPPORT_EXTERNAL_GPS := true
 #
 # ralink module = rt5370sta, realtek = rtl8191su
 #
-BOARD_WIFI_VENDOR	:= realtek
-BOARD_WLAN_DEVICE	:= rtl819xxu
+#BOARD_WIFI_VENDOR := realtek
+BOARD_WIFI_VENDOR := 
+BOARD_WLAN_DEVICE := rtl819xxu
 
 WPA_SUPPLICANT_VERSION              := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER         := WEXT
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB    := lib_driver_cmd_rtl
-WIFI_DRIVER_MODULE_NAME		        := "rtl8191su"
+#BOARD_WPA_SUPPLICANT_PRIVATE_LIB    := lib_driver_cmd_rtl
+WIFI_DRIVER_MODULE_NAME             := "rtl8191su"
 WIFI_DRIVER_MODULE_PATH             := "/system/lib/modules/rtl8191su.ko"
 WIFI_DRIVER_MODULE_NAME2	        := "rtl8192cu"
 WIFI_DRIVER_MODULE_PATH2            := "/system/lib/modules/rtl8192cu.ko"
